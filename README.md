@@ -2,7 +2,7 @@
 
 Hey there!
 
-This repository describes an easy implementation and application of Recurrent Neural Network. I used `keras` as deep learning library "Using Tensorflow Backend" on CPU (yep!). So here's what we have: 
+This repository describes an easy implementation and application of Recurrent Neural Network. I used `keras` as deep learning library "Using Tensorflow Backend" on CPU (yep!). You can modify the LSTM model as well as alter its hyperparameters as you want. So here's what we have: 
 
 #### Names:
 This directory mainly contains a `generator.py` file that trains out small LSTM model and simply generates new names. That simple.
