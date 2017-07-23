@@ -19,4 +19,4 @@ The Text directory also contains a `generator.py` file (of course different) tha
 $ python generator.py your_training_file.txt results.txt
 ```
 * Again, it will train the model now. 
-* When done, check the generated names in `results.txt`
+* When done, check the generated names in `results.txt`.
