@@ -5,8 +5,10 @@ from keras.layers import LSTM
 from keras.callbacks import ModelCheckpoint
 from random import randint
 from keras.utils import np_utils
+import sys
 
-inp = 'train_text.txt'
+inp = sys.argv[1]
+outFile = sys.argv[2]
 
 with open(inp) as f:
     content = f.read().lower()
@@ -66,8 +68,8 @@ for it in range(400):
 	preds = model.predict(x, verbose=2)[0]
 	text+=indices_vocab[sample(preds,1)]
 		
-open("temp_output.txt", 'w').close()
-new_text = open("temp_output.txt", "w")
+open(outFile, 'w').close()
+new_text = open(outFile, "w")
 for i in sorted(text):
 	new_text.write(i.replace('\n','')+'\n')
 new_text.close()
