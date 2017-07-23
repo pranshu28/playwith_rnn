@@ -68,8 +68,4 @@ for it in range(400):
 	preds = model.predict(x, verbose=2)[0]
 	text+=indices_vocab[sample(preds,1)]
 		
-open(outFile, 'w').close()
-new_text = open(outFile, "w")
-for i in sorted(text):
-	new_text.write(i.replace('\n','')+'\n')
-new_text.close()
+open(outFile, 'w').write(text).close()
