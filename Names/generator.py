@@ -20,20 +20,6 @@ vocab.append(('\n'))
 vocab_indices = dict((c, i) for i, c in enumerate(vocab))
 indices_vocab = dict((i, c) for i, c in enumerate(vocab))
 
-def sample(preds, temperature=1):
-	preds = np.asarray(preds[0]).astype('float64')
-	preds = np.log(preds) / temperature
-	exp_preds = np.exp(preds)
-	preds = exp_preds / np.sum(exp_preds)
-	probas = np.random.multinomial(1, preds, 1)
-	return np.argmax(probas)
-
-"""def exists(new):
-	for j in content:
-		if i==j[:-1]:
-			return True
-	return False"""
-
 seq = randint(1,6)
 dataX = []
 dataY = []
@@ -57,14 +43,23 @@ model.add(Activation('softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 model.summary()
 
+# Comment is when trained
 filepath='nn.hdf5'
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 model.fit(X, y,batch_size=128,epochs=10,verbose=2,callbacks=callbacks_list)
 
-
 filename = 'nn.hdf5'
 model.load_weights(filename)
+
+def sample(preds, temperature=1):
+	preds = np.asarray(preds[0]).astype('float64')
+	preds = np.log(preds) / temperature
+	exp_preds = np.exp(preds)
+	preds = exp_preds / np.sum(exp_preds)
+	probas = np.random.multinomial(1, preds, 1)
+	return np.argmax(probas)
+
 final=[]
 for temp in [.5,.8,.1,1.2]:
 	j=1
