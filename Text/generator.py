@@ -41,6 +41,7 @@ model.add(Activation('softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 model.summary()
 
+# Comment it when trained
 filepath='nn.hdf5'
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
