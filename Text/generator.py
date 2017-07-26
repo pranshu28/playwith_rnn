@@ -31,6 +31,7 @@ X = np.reshape(dataX, (n_patterns, seq, 1))
 X = X / float(len(vocab))
 y = np_utils.to_categorical(dataY)
 
+# RNN model
 model = Sequential()
 model.add(LSTM(256, return_sequences=True,input_shape=(X.shape[1], X.shape[2])))
 model.add(Dropout(0.2))
