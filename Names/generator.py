@@ -36,6 +36,7 @@ X = X / float(len(vocab))
 y = np_utils.to_categorical(dataY)
 model = Sequential()
 
+#RNN model
 model.add(LSTM(256, return_sequences=True,input_shape=(X.shape[1], X.shape[2])))
 model.add(LSTM(256))
 model.add(Dense(y.shape[1]))
