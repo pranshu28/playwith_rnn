@@ -23,7 +23,7 @@ $ python generator.py your_training_file.txt your_result_file.txt
 * When done, check the generated text in `your_result_file.txt`.
 
 ##### Notes
-* It's not necessary to train a `*.txt` file. You can also use `*.csv`, `*.tsv`etc. 
+* It's not necessary to train a `*.txt` file. You can also use `*.csv`, `*.tsv` etc. 
 * You can modify the RNN model as well as adjust its hyperparameters to improve the results. 
 
 Thanks.
