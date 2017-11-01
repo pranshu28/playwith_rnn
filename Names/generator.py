@@ -6,7 +6,11 @@ from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
 from random import randint
 
+<<<<<<< HEAD
 inp = 'train_names.txt'
+=======
+inp = 'name.txt'
+>>>>>>> 73a3153bae6376b85f64baf4521fe91c108c1acf
 with open(inp) as f:
     content = f.readlines()
 content = [x.lower() for x in content]
@@ -20,6 +24,7 @@ vocab.append(('\n'))
 vocab_indices = dict((c, i) for i, c in enumerate(vocab))
 indices_vocab = dict((i, c) for i, c in enumerate(vocab))
 
+<<<<<<< HEAD
 def sample(preds, temperature=1):
 	preds = np.asarray(preds[0]).astype('float64')
 	preds = np.log(preds) / temperature
@@ -34,6 +39,8 @@ def exists(new):
 			return True
 	return False
 
+=======
+>>>>>>> 73a3153bae6376b85f64baf4521fe91c108c1acf
 seq = randint(1,6)
 dataX = []
 dataY = []
@@ -50,6 +57,10 @@ X = X / float(len(vocab))
 y = np_utils.to_categorical(dataY)
 model = Sequential()
 
+<<<<<<< HEAD
+=======
+#RNN model
+>>>>>>> 73a3153bae6376b85f64baf4521fe91c108c1acf
 model.add(LSTM(256, return_sequences=True,input_shape=(X.shape[1], X.shape[2])))
 model.add(LSTM(256))
 model.add(Dense(y.shape[1]))
@@ -57,14 +68,32 @@ model.add(Activation('softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 model.summary()
 
+<<<<<<< HEAD
+=======
+# Comment is when trained
+>>>>>>> 73a3153bae6376b85f64baf4521fe91c108c1acf
 filepath='nn.hdf5'
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 model.fit(X, y,batch_size=128,epochs=10,verbose=2,callbacks=callbacks_list)
 
+<<<<<<< HEAD
 
 filename = 'nn.hdf5'
 model.load_weights(filename)
+=======
+filename = 'nn.hdf5'
+model.load_weights(filename)
+
+def sample(preds, temperature=1):
+	preds = np.asarray(preds[0]).astype('float64')
+	preds = np.log(preds) / temperature
+	exp_preds = np.exp(preds)
+	preds = exp_preds / np.sum(exp_preds)
+	probas = np.random.multinomial(1, preds, 1)
+	return np.argmax(probas)
+
+>>>>>>> 73a3153bae6376b85f64baf4521fe91c108c1acf
 final=[]
 for temp in [.5,.8,.1,1.2]:
 	j=1
@@ -92,8 +121,16 @@ for temp in [.5,.8,.1,1.2]:
 			0
 		j+=1
 
+<<<<<<< HEAD
 open("temp_output.txt", 'w').close()
 new_text = open("temp_output.txt", "w")
 for i in sorted(final):
 	new_text.write(i.replace('\n','')+'\n')
 new_text.close()
+=======
+open("New Names.txt", 'w').close()
+new_text = open("New Names.txt", "w")
+for i in sorted(final):
+	new_text.write(i.replace('\n','')+'\n')
+new_text.close()
+>>>>>>> 73a3153bae6376b85f64baf4521fe91c108c1acf
