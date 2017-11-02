@@ -5,7 +5,7 @@ import sys
 
 if __name__ == '__main__':
 	
-	text = sys.argv[1] if (len(sys.argv) > 1) else "karpathy"
+	text = sys.argv[1] if (len(sys.argv) > 1) else "wiki"
 	layer = 512
 	drop = 0.5
 	epochs = 100

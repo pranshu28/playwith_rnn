@@ -24,6 +24,8 @@ class rnn(object):
 		self.model.add(Dropout(self.dropout))
 		self.model.add(LSTM(self.layer1))
 		self.model.add(Dropout(self.dropout))
+		self.model.add(LSTM(self.layer1))
+		self.model.add(Dropout(self.dropout))
 		self.model.add(Dense(self.y.shape[1]))
 		self.model.add(Activation('softmax'))
 		self.model.compile(loss='categorical_crossentropy', optimizer=self.optimizer)
