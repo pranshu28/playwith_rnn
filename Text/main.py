@@ -6,7 +6,7 @@ import sys
 if __name__ == '__main__':
 	
 	text = sys.argv[1] if (len(sys.argv) > 1) else "karpathy"
-	layer = 256
+	layer = 512
 	drop = 0.5
 	epochs = 100
 	batch = 128
@@ -21,8 +21,8 @@ if __name__ == '__main__':
 
 	rnn = rnn(text, x,y,layer1=layer, dropout=drop,epochs = epochs,batch=batch,optimizer = optimizer)
 	rnn.define()
-	rnn.load()
-	# rnn.train()
+	# rnn.load()
+	rnn.train()
 
 	new = output(file.get_content(),seq=seq, words=new_words,temp=temperature)
 	vocab,dict1,dict2 = file.get_vocab()
