@@ -8,7 +8,7 @@ class inp(object):
 		self.seq = seq
 		self.inpFile = self.inp+".txt"
 		self.outFile = self.inp+"-out.txt"
-		self.content = open(self.inpFile).read().split(" ")
+		self.content = [x.lower() for x in open(self.inpFile).read()]
 		self.vocab = sorted(list(set(self.content)))
 		self.vocab_indices = dict((c, i) for i, c in enumerate(self.vocab))
 		self.indices_vocab = dict((i, c) for i, c in enumerate(self.vocab))

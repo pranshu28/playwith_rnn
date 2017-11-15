@@ -58,10 +58,10 @@ model.add(Activation('softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 model.summary()
 
-filepath='nn.hdf5'
-checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
-callbacks_list = [checkpoint]
-model.fit(X, y,batch_size=128,epochs=10,verbose=2,callbacks=callbacks_list)
+# filepath='nn.hdf5'
+# checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
+# callbacks_list = [checkpoint]
+# model.fit(X, y,batch_size=128,epochs=10,verbose=2,callbacks=callbacks_list)
 
 
 filename = 'nn.hdf5'
@@ -110,5 +110,6 @@ new_text.close()
 open("New Names.txt", 'w').close()
 new_text = open("New Names.txt", "w")
 for i in sorted(final):
-	new_text.write(i.replace('\n','')+'\n')
+	if i not in open('train_names.txt').read():
+		new_text.write(i.replace('\n','')+'\n')
 new_text.close()
