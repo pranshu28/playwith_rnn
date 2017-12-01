@@ -2,7 +2,7 @@
 
 Hey there!
 
-This repository describes an easy implementation and application of Recurrent Neural Network. I used `keras` as deep learning library "Using Tensorflow Backend" on CPU (yep!). I experimented on various types of text datasets as input to the model that then generates the probability distribution which is sampled to return the next best output for a given sequence of characters.
+This repository describes an easy implementation and application of Recurrent Neural Network. I used `keras` as deep learning library "Using Tensorflow Backend" on CPU (yep!). I experimented with various types of text datasets as input to the model that then generates the probability distribution which is sampled to return the next best output for a given sequence of characters.
 
 So here's what we have: 
 
@@ -16,7 +16,7 @@ This directory mainly contains a `generator.py` file that trains on small LSTM m
 #### Text - character and Text - word:
 The Text directory contains a `main.py` file that calls:
 
- 1. `text_io.py` file handles the input and output functions for LSTM model to generate some more "similar" text. It reads the text file, then splits the content into an character array. The text to be imported for training can be essays, poems, some kind of code, or even a data-set:). But, please make sure that this file contains at least 1MB of text. Otherwise, you *might* not like the results. I also considered word-level (check `Text-word`) training in which vocab consists of unique words in the given dataset. The rest process is similar to that in character-level training.
+ 1. `text_io.py` file handles the input and output functions for LSTM model to generate some more "similar" text. It reads the text file, then splits the content into a character array. The text to be imported for training can be essays, poems, some kind of code, or even a data-set:). But, please make sure that this file contains at least 1MB of text. Otherwise, you *might* not like the results. I also considered word-level (check `Text-word`) training in which vocab consists of unique words in the given dataset. The rest process is similar to that in character-level training.
 
  2. `model.py` file defines the LSTM model and its training hyper-parameters i.e., units in a layer, dropout, training epochs, batch size etc. With each epoch, it saves the updated weights while training with the lowest error so that we can just load and generate new text without training the model again and again.
 
