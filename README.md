@@ -7,7 +7,7 @@ This repository describes an easy implementation and application of Recurrent Ne
 So here's what we have: 
 
 #### Names:
-This directory mainly contains a `generator.py` file that trains on small LSTM model and simply generates new names. That simple. To run the program:
+This directory mainly contains a `generator.py` file that trains on small LSTM model and generates new names. That simple. To run the program:
 
 * Run `generator.py`.
 * It will train the model now. It will take time depending on your CPU/GPU configuration.
